@@ -1,0 +1,22 @@
+# Experimento 03: mesmo modelo do exp02, agora com features derivadas
+experiment_name: california-housing
+run_name: exp03_random_forest_features
+question: "Adicionar features derivadas (razões entre cômodos e distância a Los Angeles e San Francisco) melhora o Random Forest do exp02?"
+hypothesis: "Melhora levemente, pois a distância aos grandes centros resume a informação geográfica de forma mais direta."
+seed: 42
+
+data:
+  val_size: 0.2
+  test_size: 0.2
+  feature_engineering: true
+
+model:
+  type: random_forest
+  params:
+    n_estimators: 200
+    max_depth: 20
+    min_samples_leaf: 2
+    n_jobs: -1
+
+evaluation:
+  cv_folds: 3

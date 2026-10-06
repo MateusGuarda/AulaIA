@@ -1,0 +1,22 @@
+# Experimento 02: modelo não linear com as mesmas features
+experiment_name: california-housing
+run_name: exp02_random_forest
+question: "Um modelo não linear (Random Forest) reduz o erro em relação à linha de base linear, usando as mesmas features?"
+hypothesis: "Sim. Árvores capturam interações entre latitude, longitude e renda que o modelo linear não captura."
+seed: 42
+
+data:
+  val_size: 0.2
+  test_size: 0.2
+  feature_engineering: false
+
+model:
+  type: random_forest
+  params:
+    n_estimators: 200
+    max_depth: 20
+    min_samples_leaf: 2
+    n_jobs: -1
+
+evaluation:
+  cv_folds: 3

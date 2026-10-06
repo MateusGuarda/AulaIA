@@ -1,0 +1,19 @@
+# Experimento 01: linha de base linear
+experiment_name: california-housing
+run_name: exp01_baseline_linear
+question: "Qual o desempenho de um modelo linear simples (Ridge) como linha de base para prever o valor mediano das casas?"
+hypothesis: "O modelo linear deve ter erro alto, pois a relação entre renda, localização e preço não é linear."
+seed: 42
+
+data:
+  val_size: 0.2
+  test_size: 0.2
+  feature_engineering: false
+
+model:
+  type: ridge
+  params:
+    alpha: 1.0
+
+evaluation:
+  cv_folds: 5
